@@ -4,10 +4,8 @@ Use Kitsch Labs audio tools in Codex and Claude Code. This plugin bundles the
 hosted MCP connection settings with an audio workflow skill. You do not need to
 install a local MCP server or copy an API key.
 
-Current version: **0.1.0**. This is an initial release. See the
-[validation record](docs/validation.md) for OAuth and paid audio verification
-status. This is a Kitsch Labs GitHub marketplace, not an official product
-directory listing.
+Current version: **0.1.0**. This is a Kitsch Labs GitHub marketplace, not an
+official product directory listing.
 
 ## Installation
 
