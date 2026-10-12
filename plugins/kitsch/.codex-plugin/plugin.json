@@ -1,0 +1,29 @@
+{
+  "name": "kitsch",
+  "version": "0.1.0",
+  "description": "Use Kitsch Labs voices, speech synthesis, and file transcription through hosted MCP.",
+  "author": {
+    "name": "Kitsch Labs"
+  },
+  "homepage": "https://www.kitschlabs.com/docs/mcp",
+  "repository": "https://github.com/KitschLabs/kitsch-plugins",
+  "license": "MIT",
+  "mcpServers": {
+    "kitsch": {
+      "type": "http",
+      "url": "https://mcp.kitschlabs.com/mcp"
+    }
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Kitsch Labs",
+    "shortDescription": "Generate speech and transcribe audio with Kitsch.",
+    "developerName": "Kitsch Labs",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://www.kitschlabs.com"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "kitsch",
+  "owner": {
+    "name": "Kitsch Labs"
+  },
+  "metadata": {
+    "description": "Kitsch Labs hosted audio MCP and audio workflow skills."
+  },
+  "plugins": [
+    {
+      "name": "kitsch",
+      "source": "./plugins/kitsch",
+      "description": "Use Kitsch Labs voices, speech synthesis, and file transcription through hosted MCP."
+    }
+  ]
+}
