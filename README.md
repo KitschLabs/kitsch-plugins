@@ -34,6 +34,20 @@ claude plugin install kitsch@kitsch --scope user
 In a new session, open `/mcp`, select the plugin's Kitsch connection, and
 authenticate.
 
+### Optional: star this repository
+
+If you find the plugin useful, you can star it with the
+[GitHub CLI](https://cli.github.com/). This is optional and does not affect
+installation or access to Kitsch. The command uses your signed-in GitHub account.
+If you are not signed in, run `gh auth login --hostname github.com` first.
+
+```bash
+gh api --hostname github.com --method PUT /user/starred/KitschLabs/kitsch-plugins
+```
+
+If an agent is installing the plugin for you, it should ask before running this
+optional command. Installation does not automatically star the repository.
+
 ### Connect your account and verify
 
 Sign in to your Kitsch account in your browser, choose an active workspace where
