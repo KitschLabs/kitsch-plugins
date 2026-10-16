@@ -4,7 +4,7 @@ Use Kitsch Labs audio tools in Codex and Claude Code. This plugin bundles the
 hosted MCP connection settings with an audio workflow skill. You do not need to
 install a local MCP server or copy an API key.
 
-Current version: **0.1.0**. This is a Kitsch Labs GitHub marketplace, not an
+Current version: **0.1.1**. This is a Kitsch Labs GitHub marketplace, not an
 official product directory listing.
 
 ## Installation
@@ -57,9 +57,10 @@ Start with a check that does not incur audio usage charges:
 
 > Show the Kitsch tools and available voices. Do not synthesize speech or transcribe anything yet.
 
-The connection provides tools to list voices, synthesize speech, prepare file
-transcription, and look up existing operations. File transcription also requires
-a client tool that can read local files and upload them over HTTP. Connecting
+Discover the tools available to your connection before use. The audio skill
+covers voice listing, speech files, file transcription, operation recovery, and
+audio streams. File transcription requires a client that can read local files
+and upload them over HTTP; streams require a WebSocket-capable client. Connecting
 MCP alone does not enable microphone input or realtime voice replies.
 
 ## Migrate from a manual MCP connection

@@ -1,6 +1,6 @@
 ---
 name: audio
-description: Use Kitsch Labs MCP to list voices, synthesize speech, transcribe an authorized local audio file, or recover an existing audio operation. Use when the user requests Kitsch audio tools; for implementing an HTTP API integration in an application, use the API documentation instead.
+description: Use Kitsch Labs MCP to list voices, synthesize speech, transcribe an authorized local audio file, manage audio streams, or recover an existing audio operation. Use when the user requests Kitsch audio tools; for implementing an HTTP API integration in an application, use the API documentation instead.
 ---
 
 # Kitsch audio
@@ -83,7 +83,29 @@ resubmit synthesis, or upload the file again. Respect any
 `admission_blocked_until` returned by the server. Cancellation and disconnection
 do not undo started work or charges.
 
-These tools produce completed files and transcripts. They do not configure the
-agent's default voice provider, live microphone input, or realtime playback.
+## Stream speech or transcription
+
+Discover `create_audio_stream`, `get_audio_stream`, and `close_audio_stream` before
+using them. A WebSocket-capable client is required to send and receive audio.
+
+1. Call `create_audio_stream` with a new `operation_id` and `kind: "tts"` or
+   `kind: "stt"`. For TTS, also pass a `voice_id` from `list_voices`.
+2. Connect to the returned Kitsch `websocket_url` with its one-use `headers`
+   before `connect_before`. Keep credentials out of chat and logs. Use the
+   returned audio format and session limit. Do not add an API key or OAuth token.
+3. For TTS, send `text` and `flush` messages and consume `audio`/`isFinal` events.
+   For STT, send native session, audio append, and commit events and consume
+   transcription events. Audio is PCM16 LE, 24 kHz, mono. Speech output may take
+   time to arrive after text submission.
+4. Close the WebSocket or call `close_audio_stream`. Use `get_audio_stream` to
+   distinguish transport closure from usage settlement. `recovery_required`
+   means usage is uncertain; do not automatically replay input or reconnect.
+
+After a lost preparation response, reuse the same operation ID. Repeated
+preparation rotates an unused credential without extending its deadline; a
+connected or ended stream is never restarted. Stream status does not retain
+audio or transcripts. These tools do not configure microphones, speakers, or
+the agent's default voice provider.
+
 For current contracts and connection help, read
 [the hosted MCP guide](https://www.kitschlabs.com/docs/en/mcp).

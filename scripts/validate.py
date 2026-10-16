@@ -39,7 +39,8 @@ def validate(root=ROOT):
     skill = (plugin / "skills/audio/SKILL.md").read_text(encoding="utf-8")
     assert skill.startswith("---\nname: audio\ndescription: ")
     assert skill.count("\n---\n") == 1
-    for tool in ("list_voices", "synthesize_speech", "prepare_transcription", "get_audio_operation"):
+    for tool in ("list_voices", "synthesize_speech", "prepare_transcription", "get_audio_operation",
+                 "create_audio_stream", "get_audio_stream", "close_audio_stream"):
         assert tool in skill, f"Missing tool: {tool}"
     assert not list(plugin.rglob("*.env")), "Environment files must not ship"
     assert not (plugin / "hooks").exists(), "No runtime hooks in this release"

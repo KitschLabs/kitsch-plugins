@@ -1,6 +1,6 @@
 {
   "name": "kitsch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Use Kitsch Labs voices, speech synthesis, and file transcription through hosted MCP.",
   "author": {
     "name": "Kitsch Labs"
